@@ -1,0 +1,42 @@
+.history {
+  &__title {
+    font-weight: 600;
+    font-size: rem(36px);
+    line-height: rem(36px);
+    text-align: center;
+  }
+
+  &__content {
+    margin-top: rem(104px);
+  }
+
+  &__card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: rem(12px);
+    box-sizing: border-box;
+    padding: rem(12px 24px 12px 52px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:first-child) {
+      margin-top: rem(24px);
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+    }
+
+    &-desc {
+      font-weight: 600;
+      font-size: rem(18px);
+      line-height: rem(24px);
+
+      &:not(:first-child) {
+        margin-left: rem(34px);
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.button {
+  font-weight: 600;
+  font-size: rem(18px);
+  line-height: rem(18px);
+  color: #ffffff;
+  box-sizing: border-box;
+  display: inline-flex;
+  padding: rem(6px 40px);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: rem(8px);
+  background: #169601e6;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #169601;
+  }
+
+  &:disabled {
+    background: #15980180;
+    cursor: default;
+
+    &:hover {
+      background: #15980180;
+    }
+  }
+
+  &.--danger {
+    background: #d84111e6;
+
+    &:hover {
+      background: #d84111;
+    }
+  }
+
+  &.--margin-left {
+    margin-left: rem(28px);
+  }
+}
