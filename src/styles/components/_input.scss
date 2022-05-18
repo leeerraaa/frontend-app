@@ -11,4 +11,14 @@
   font-size: rem(20px);
   line-height: rem(20px);
   box-sizing: border-box;
+
+  &.--white {
+    height: rem(64px);
+    background: #ffffff;
+    box-shadow: rem(0px 1px 1px rgba(71, 70, 70, 0.25));
+    border-radius: rem(12px);
+    font-size: rem(26px);
+    line-height: rem(26px);
+    font-weight: 400;
+  }
 }
