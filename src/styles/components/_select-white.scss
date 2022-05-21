@@ -36,8 +36,11 @@
     font-size: rem(26px);
     line-height: rem(26px);
     box-sizing: border-box;
-    padding-left: rem(20px);
+    padding: rem(0 42px 0 20px);
     color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
 
     &.--placeholder {
       color: #4093ee;
@@ -73,8 +76,8 @@
     &-item {
       display: flex;
       align-items: center;
-      height: rem(64px);
-      padding: rem(0 4px 0 16px);
+      min-height: rem(64px);
+      padding: rem(8px 4px 8px 16px);
       cursor: pointer;
       position: relative;
       z-index: 11;
