@@ -19,6 +19,9 @@
     </div>
 
     <div class="login__footer">
+      <div class="login__footer-error" v-show="isError">
+        Невірний логін або пароль
+      </div>
       <button
         class="button"
         type="button"
@@ -34,24 +37,50 @@
 <script>
 import { ref } from '@vue/reactivity';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import { inject, nextTick } from '@vue/runtime-core';
 
 export default {
   setup() {
+    const store = useStore();
     const router = useRouter();
+    const axios = inject('axios');
+
     const login = ref('');
     const password = ref('');
+    const isError = ref(false);
 
-    const submitData = () => {
-      if (login.value && password.value) {
-        router.push({
-          name: 'content.history',
+    const submitData = async () => {
+      try {
+        isError.value = false;
+
+        const { data } = await axios({
+          method: 'post',
+          url: '/auth/sign-in',
+          data: {
+            login: login.value,
+            password: password.value,
+          },
         });
+
+        store.dispatch('auth/setUserToken', data);
+        await store.dispatch('auth/setUserLogin').then(() => {
+          nextTick(() => {
+            router.push({
+              name: 'content.history',
+            });
+          });
+        });
+      } catch (e) {
+        console.log(e);
+        isError.value = true;
       }
     };
 
     return {
       login,
       password,
+      isError,
       submitData,
     };
   },

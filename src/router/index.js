@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '@/layouts/MainLayout.vue';
+import store from '@/store';
 
 import Login from './login';
 import Content from './content';
@@ -10,9 +11,11 @@ const routes = [
     name: 'main',
     component: MainLayout,
 
-    // beforeEnter: async (to, from, next) => {
-    //   next();
-    // },
+    beforeEnter: async (to, from, next) => {
+      await store.dispatch('auth/setUserLogin');
+
+      next();
+    },
 
     children: [Login, Content],
   },

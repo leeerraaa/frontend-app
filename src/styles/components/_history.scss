@@ -8,6 +8,13 @@
 
   &__content {
     margin-top: rem(104px);
+
+    &-title {
+      text-align: center;
+      font-weight: 600;
+      font-size: rem(28px);
+      line-height: rem(28px);
+    }
   }
 
   &__card {
