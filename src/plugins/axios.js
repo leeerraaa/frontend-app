@@ -6,7 +6,7 @@ import store from '@/store';
 const { cookies } = useCookies();
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:8000',
 });
 
 export const setAuthHeaders = () => {
