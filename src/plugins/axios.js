@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useCookies } from 'vue3-cookies';
 import router from '@/router';
-import store from '../store';
+import store from '@/store';
 
 const { cookies } = useCookies();
 
@@ -22,7 +22,7 @@ axiosInstance.interceptors.response.use(
     const { status } = error.request;
 
     if (status === 401) {
-      store.dispatch('setUserUnlogin');
+      store.dispatch('auth/setUserUnlogin');
       setTimeout(() => {
         router.push({
           name: 'service.login',

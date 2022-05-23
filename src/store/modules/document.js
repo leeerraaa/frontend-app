@@ -42,14 +42,13 @@ const actions = {
   // /document/:id
   async documentDownload(_, document_id) {
     try {
-      const { data } = await axios({
+      const data = await axios({
         method: 'get',
         url: `/document/${document_id}`,
+        responseType: 'blob',
       });
 
-      const { result } = data;
-
-      return result;
+      return data;
     } catch (e) {
       console.log(e);
     }

@@ -69,7 +69,25 @@ export default {
     };
 
     const documentDownload = async (document_id) => {
-      await store.dispatch('document/documentDownload', document_id);
+      const result = await store.dispatch(
+        'document/documentDownload',
+        document_id
+      );
+
+      const blob = new Blob([result.data], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      });
+
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute(
+        'download',
+        result.headers['content-disposition'].split('filename=')[1]
+      );
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     };
 
     return {
