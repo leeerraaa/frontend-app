@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
 .content-layout {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   background: #dbe0e1;
 

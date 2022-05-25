@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss">
 .login-layout {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   background: #dbe0e1;
   display: flex;
